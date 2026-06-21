@@ -10,10 +10,11 @@ application:
       DATABASE_URL: postgres://outline:outline@postgres.pod:5432/outline
       REDIS_URL: redis://redis.pod:6379
       URL: "<%URL%>"
-      SECRET_KEY: "secret-key-hex-changeme"
-      UTILS_SECRET: "utils-secret-hex-changeme"
+      SECRET_KEY: "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+      UTILS_SECRET: "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5"
       FILE_STORAGE: local
       FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
+      NODE_ENV: production
     volumes:
     - name: outline-data
       mountPath: /var/lib/outline/data
