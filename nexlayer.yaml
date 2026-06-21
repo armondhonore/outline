@@ -1,36 +1,36 @@
 application:
   name: outline
   pods:
-    - name: app
-      image: outlinewiki/outline:latest
-      path: /
-      servicePorts:
-        - 3000
-      vars:
-        DATABASE_URL: postgres://outline:outline@postgres.pod:5432/outline
-        REDIS_URL: redis://redis.pod:6379
-        URL: "<%URL%>"
-        SECRET_KEY: "secret-key-hex-changeme"
-        UTILS_SECRET: "utils-secret-hex-changeme"
-        FILE_STORAGE: local
-        FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
-      volumes:
-        - name: data
-          mountPath: /var/lib/outline/data
-          size: 10Gi
-    - name: postgres
-      image: postgres:16
-      servicePorts:
-        - 5432
-      vars:
-        POSTGRES_DB: outline
-        POSTGRES_USER: outline
-        POSTGRES_PASSWORD: outline
-      volumes:
-        - name: db
-          mountPath: /var/lib/postgresql
-          size: 5Gi
-    - name: redis
-      image: redis:7-alpine
-      servicePorts:
-        - 6379
+  - name: app
+    image: outlinewiki/outline:latest
+    path: /
+    servicePorts:
+    - 3000
+    vars:
+      DATABASE_URL: postgres://outline:outline@postgres.pod:5432/outline
+      REDIS_URL: redis://redis.pod:6379
+      URL: "<%URL%>"
+      SECRET_KEY: "secret-key-hex-changeme"
+      UTILS_SECRET: "utils-secret-hex-changeme"
+      FILE_STORAGE: local
+      FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
+    volumes:
+    - name: outline-data
+      mountPath: /var/lib/outline/data
+      size: 10Gi
+  - name: postgres
+    image: postgres:16
+    servicePorts:
+    - 5432
+    vars:
+      POSTGRES_DB: outline
+      POSTGRES_USER: outline
+      POSTGRES_PASSWORD: outline
+    volumes:
+    - name: outline-db
+      mountPath: /var/lib/postgresql
+      size: 5Gi
+  - name: redis
+    image: redis:7-alpine
+    servicePorts:
+    - 6379
