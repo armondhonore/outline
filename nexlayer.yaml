@@ -16,7 +16,7 @@ application:
       FILE_STORAGE: local
       FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
       NODE_ENV: production
-      COLLABORATION_URL: https://relaxed-weasel-outline.cloud.nexlayer.ai
+      PORT: "3000"
     volumes:
     - name: outline-data
       mountPath: /var/lib/outline/data
